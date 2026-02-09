@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  <stylelet tasks = [];
+
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+const message = document.getElementById("message");
+
+function addTask() {
+    message.textContent = "";
+
+    // Validation
+    if (!taskInput.value) {
+        message.textContent = "Task cannot be empty!";
+        return;
+    }
+
+    if (taskInput.value.length < 3) {
+        message.textContent = "Task must be at least 3 characters!";
+        return;
+    }
+
+    tasks.push(taskInput.value);
+    taskInput.value = "";
+    displayTasks();
+}
+
+function displayTasks() {
+    taskList.innerHTML = "";
+
+    tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.className = "task-item";
+
+        li.innerHTML = `
+            <span>${task}</span>
+            <button onclick="deleteTask(${index})">Delete</button>
+        `;
+
+        taskList.appendChild(li);
+    });
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    displayTasks();
+}
+  </style>
+</head>
+<body>
+
+<header>
+    <h1>📝 To-Do List Manager</h1>
+    <p>Organize your daily tasks effectively</p>
+</header>
+
+<section class="cards">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+        <h3>Stay Organized</h3>
+        <p>Plan tasks and manage your time efficiently.</p>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe">
+        <h3>Increase Focus</h3>
+        <p>Reduce stress by tracking your daily goals.</p>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+        <h3>Productivity</h3>
+        <p>Finish tasks faster with clear priorities.</p>
+    </div>
+</section>
+
+<section class="container">
+    <div class="form">
+        <h2>Add New Task</h2>
+        <p class="message" id="message"></p>
+        <input type="text" id="taskInput" placeholder="Enter task name">
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</section>
+
+<footer>
+    <p>© 2026 To-Do List Project </p>
+</footer>
+
+<script src="script.js">let tasks = [];
+
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+const message = document.getElementById("message");
+
+function addTask() {
+    message.textContent = "";
+
+    // Validation
+    if (!taskInput.value) {
+        message.textContent = "Task cannot be empty!";
+        return;
+    }
+
+    if (taskInput.value.length < 3) {
+        message.textContent = "Task must be at least 3 characters!";
+        return;
+    }
+
+    tasks.push(taskInput.value);
+    taskInput.value = "";
+    displayTasks();
+}
+
+function displayTasks() {
+    taskList.innerHTML = "";
+
+    tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.className = "task-item";
+
+        li.innerHTML = `
+            <span>${task}</span>
+            <button onclick="deleteTask(${index})">Delete</button>
+        `;
+
+        taskList.appendChild(li);
+    });
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    displayTasks();
+}
+  </script>
+</body>
+</html> 
+</body>
+</html>
